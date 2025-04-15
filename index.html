@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Cuasar Exchanger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Шапка -->
+  <div class="header">
+    <div class="logo-wrapper" id="logo-container">
+      <div class="logo-container" id="logo-animation"></div>
+      <span class="site-name">Cuasar</span>
+    </div>
+    
+    <nav class="nav-menu">
+      <a href="#" class="nav-link active">Главная</a>
+      <a href="#" class="nav-link">О нас</a>
+      <a href="#" class="nav-link">Контакты</a>
+      <a href="#" class="nav-link">FAQ</a>
+    </nav>
+    
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <a href="#" class="contact-link">
+        <i class="fab fa-telegram-plane"></i>
+        <span>@premium</span>
+      </a>
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  
+  <main class="main-container">
+    <!-- Блок с обменником и слоганом -->
+    <div class="exchange-section">
+      <div class="slogan-block">
+        <div class="slogan-content">
+          <h2 class="slogan-title">TON для всех</h2>
+          <p class="slogan-text">Первый обменник, где вы можете купить TON на сумму от 30 рублей, когда другие требуют минимум 1000 рублей.</p>
+          <ul class="slogan-features">
+            <li>Обмен от 30 рублей без скрытых комиссий</li>
+            <li>Мгновенный вывод на любой кошелек</li>
+            <li>Простота и удобство для новичков</li>
+            <li>Поддержка 24/7 в Telegram</li>
+          </ul>
+        </div>
+        <div class="diamond-animation" id="diamond-animation"></div>
+      </div>
+      
+<!-- Виджет обмена -->
+<div class="exchange-box">
+  <h2 class="exchange-title">Обменять валюту</h2>
+  
+  <div class="input-group">
+    <span class="input-label">Вы отправляете</span>
+    <div class="input-wrapper">
+      <input type="number" id="rub-input" placeholder="0" min="0" class="input-field">
+      <div class="currency-container">
+        <img src="rub.png" alt="RUB" class="currency-icon">
+        <span>RUB</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="input-group">
+    <span class="input-label">Вы получаете
+      <span class="rate-info">≈ ₽282.72 (-0.79%)</span>
+      <div class="info-icon">
+        ⓘ
+        <div class="info-tooltip">
+          <div class="info-tooltip-title">Как рассчитывается курс?</div>
+          <div class="info-tooltip-text">
+            TON = 325 RUB<br>
+            После комиссий: 350 RUB<br><br>
+            <strong>Самая низкая комиссия на рынке!</strong>
+          </div>
+          <div class="fee-breakdown">
+            <div class="fee-part fee-part-1"></div>
+            <div class="fee-part fee-part-2"></div>
+            <div class="fee-part fee-part-3"></div>
+          </div>
+          <div class="fee-labels">
+            <span>Вы получаете (87%)</span>
+            <span>Сервис (8%)</span>
+            <span>Сеть (5%)</span>
+          </div>
+          <div class="info-tooltip-text" style="margin-top: 10px; font-size: 12px;">
+            Комиссия сервиса идет на его развитие и поддержку
+          </div>
+        </div>
+      </div>
+    </span>
+    <div class="input-wrapper">
+      <input type="number" id="ton-input" placeholder="0" min="0" class="input-field">
+      <div class="currency-container">
+        <img src="ton.png" alt="TON" class="currency-icon">
+        <span>TON</span>
+      </div>
+    </div>
+  </div>
+        
+        <div class="payment-methods">
+          <span class="input-label">Способ оплаты</span>
+          <div class="custom-select">
+            <div class="select-selected">
+              <div class="payment-info">
+                <img src="card.png" class="payment-icon" alt="Карта">
+                <span>Оплата картой</span>
+                <span class="payment-percent">1%</span>
+              </div>
+            </div>
+            <div class="select-items">
+              <div>
+                <div class="payment-option">
+                  <img src="card.png" class="payment-icon" alt="Карта">
+                  <span>Оплата картой</span>
+                </div>
+                <span class="payment-percent">1%</span>
+              </div>
+              <div>
+                <div class="payment-option">
+                  <img src="sbp.png" class="payment-icon" alt="СБП">
+                  <span>СБП</span>
+                </div>
+                <span class="payment-percent">2%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="blob-btn">
+          Обменять
+          <span class="blob-btn__inner">
+            <span class="blob-btn__blobs">
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Виджет отзывов -->
+    <div class="reviews-widget">
+      <h2 class="reviews-title">Отзывы наших клиентов</h2>
+      
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-date">15.05.2023</div>
+          <h3 class="review-title">Отличный сервис!</h3>
+          <p class="review-text">Очень доволен обменом, все прошло быстро и без проблем. Курс выгодный, поддержка отвечает моментально. Рекомендую всем!</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-date">22.06.2023</div>
+          <h3 class="review-title">Быстро и надежно</h3>
+          <p class="review-text">Пользуюсь уже несколько месяцев - ни разу не подвели. Обменял уже больше 50,000 рублей. Все транзакции проходят за 2-3 минуты.</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-date">03.07.2023</div>
+          <h3 class="review-title">Лучший курс</h3>
+          <p class="review-text">Сравнивал с другими обменниками - здесь действительно самый выгодный курс. Обмениваю только здесь уже полгода.</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-date">18.07.2023</div>
+          <h3 class="review-title">Отличная поддержка</h3>
+          <p class="review-text">Возникла небольшая задержка с переводом, но поддержка оперативно все решила. Очень приятное общение и быстрая помощь.</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-date">29.08.2023</div>
+          <h3 class="review-title">Просто и удобно</h3>
+          <p class="review-text">Интуитивно понятный интерфейс, никаких лишних действий. Сделал обмен за пару минут без регистрации.</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-date">12.09.2023</div>
+          <h3 class="review-title">Безопасность</h3>
+          <p class="review-text">Важно, что сервис не требует лишних данных. Все анонимно и безопасно. Проверил на нескольких обменах - все чисто.</p>
+        </div>
+      </div>
+      
+      <!-- Swiper для мобильных -->
+      <div class="reviews-swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="review-slide swiper-slide">
+            <div class="review-card">
+              <div class="review-date">15.05.2023</div>
+              <h3 class="review-title">Отличный сервис!</h3>
+              <p class="review-text">Очень доволен обменом, все прошло быстро и без проблем. Курс выгодный, поддержка отвечает моментально. Рекомендую всем!</p>
+            </div>
+          </div>
+          <div class="review-slide swiper-slide">
+            <div class="review-card">
+              <div class="review-date">22.06.2023</div>
+              <h3 class="review-title">Быстро и надежно</h3>
+              <p class="review-text">Пользуюсь уже несколько месяцев - ни разу не подвели. Обменял уже больше 50,000 рублей. Все транзакции проходят за 2-3 минуты.</p>
+            </div>
+          </div>
+          <div class="review-slide swiper-slide">
+            <div class="review-card">
+              <div class="review-date">03.07.2023</div>
+              <h3 class="review-title">Лучший курс</h3>
+              <p class="review-text">Сравнивал с другими обменниками - здесь действительно самый выгодный курс. Обмениваю только здесь уже полгода.</p>
+            </div>
+          </div>
+          <div class="review-slide swiper-slide">
+            <div class="review-card">
+              <div class="review-date">18.07.2023</div>
+              <h3 class="review-title">Отличная поддержка</h3>
+              <p class="review-text">Возникла небольшая задержка с переводом, но поддержка оперативно все решила. Очень приятное общение и быстрая помощь.</p>
+            </div>
+          </div>
+          <div class="review-slide swiper-slide">
+            <div class="review-card">
+              <div class="review-date">29.08.2023</div>
+              <h3 class="review-title">Просто и удобно</h3>
+              <p class="review-text">Интуитивно понятный интерфейс, никаких лишних действий. Сделал обмен за пару минут без регистрации.</p>
+            </div>
+          </div>
+          <div class="review-slide swiper-slide">
+            <div class="review-card">
+              <div class="review-date">12.09.2023</div>
+              <h3 class="review-title">Безопасность</h3>
+              <p class="review-text">Важно, что сервис не требует лишних данных. Все анонимно и безопасно. Проверил на нескольких обменах - все чисто.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      
+      <a href="https://tonviewer.com" target="_blank" class="stats-link">
+        Посмотреть все 3000+ транзакций на Tonviewer →
+      </a>
+    </div>
+
+    <!-- Виджет преимуществ -->
+    <div class="features-widget">
+      <h2 class="features-title">Наши преимущества</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <h3 class="feature-title">Выгодный курс</h3>
+          <p class="feature-text">Лучшие курсы обмена на рынке с минимальными комиссиями</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="feature-title">Безопасность</h3>
+          <p class="feature-text">Все операции защищены и анонимны</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="feature-title">Мгновенный обмен</h3>
+          <p class="feature-text">Средства зачисляются в течение 1-5 минут</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3 class="feature-title">Много направлений</h3>
+          <p class="feature-text">Обмен между 20+ криптовалютами и фиатом</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3 class="feature-title">Поддержка 24/7</h3>
+          <p class="feature-text">Круглосуточная помощь по любым вопросам</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-percentage"></i>
+          </div>
+          <h3 class="feature-title">Низкие комиссии</h3>
+          <p class="feature-text">Минимальные комиссии по сравнению с конкурентами</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#" class="footer-link">Политика конфиденциальности</a>
+        <a href="#" class="footer-link">Условия использования</a>
+        <a href="#" class="footer-link">Поддержка</a>
+        <a href="#" class="footer-link">Партнерам</a>
+      </div>
+      <p class="copyright">© 2023 Cuasar Exchanger. Все права защищены.<br>Сервис не является финансовым учреждением.</p>
+    </div>
+  </footer>
+
+  <!-- Скрытый SVG фильтр для blob-эффекта -->
+  <div class="hidden-svg">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
