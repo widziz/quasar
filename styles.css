@@ -2,6 +2,8 @@
   --primary: #4d6bfe;
   --primary-light: rgba(77, 107, 254, 0.1);
   --primary-glow: rgba(77, 107, 254, 0.3);
+  --gray-border: #e2e8f0;
+  --gray-text: #64748b;
 }
 
 body {
@@ -63,13 +65,18 @@ body {
   align-items: center;
 }
 
+
 .nav-link {
   color: #64748b;
   font-weight: 500;
   position: relative;
-  transition: all 0.3s ease;
   padding: 5px 0;
   font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  color: var(--primary);
 }
 
 .nav-link:hover {
@@ -86,10 +93,14 @@ body {
   background: var(--primary);
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, left 0.3s ease;
 }
 
 .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active::after {
   transform: scaleX(1);
 }
 
@@ -140,16 +151,18 @@ body {
 .slogan-content {
   position: relative;
   z-index: 1;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .slogan-title {
-  font-size: 42px; /* Крупнее */
+  font-size: 42px;
   font-weight: 800;
   background: linear-gradient(90deg, #2a82eb, #03cfc2);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: none; /* Убрано свечение */
+  margin-bottom: 20px;
 }
 
 .slogan-text {
@@ -190,7 +203,7 @@ body {
   opacity: 0.3;
   z-index: 0;
   display: block;
-  background-image: url('diamond-static.png'); /* Заменяем анимацию на статичное изображение */
+  background-image: url('diamond-static.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -219,17 +232,16 @@ body {
 }
 
 .input-group {
-  margin: 5px 0; /* Уменьшен отступ между полями */
+  margin: 15px 0;
   position: relative;
   text-align: left;
 }
 
-.rate-info {
-  display: inline-block;
-  font-size: 12px;
-  color: #64748b;
-  margin-left: 10px;
-  vertical-align: middle;
+.input-hint {
+  font-size: 13px;
+  color: var(--gray-text);
+  margin-top: 6px;
+  padding-left: 5px;
 }
 
 .input-label {
@@ -247,11 +259,16 @@ body {
   display: flex;
   align-items: center;
   background: white;
-  padding: 8px 12px; /* Уменьшен padding */
-  border-radius: 12px;
-  border: 1px solid #e2e8f0; /* Светло-серая граница */
-  box-shadow: none; /* Убрана тень */
-  height: 48px; /* Фиксированная высота */
+  padding: 12px 15px;
+  border-radius: 16px;
+  border: 1px solid var(--gray-border);
+  box-shadow: none;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper:hover {
+  border-color: #cbd5e1;
 }
 
 .input-field {
@@ -286,17 +303,19 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #e2e8f0;
-  color: #64748b;
+  border: 1px solid var(--gray-border);
+  color: var(--gray-text);
   font-size: 12px;
   margin-left: 8px;
   cursor: help;
   position: relative;
   transition: all 0.2s ease;
+  background: transparent;
 }
 
 .info-icon:hover {
-  background: #cbd5e1;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
 
 .info-tooltip {
@@ -387,10 +406,10 @@ body {
 }
 
 .select-selected {
-  background: rgba(255, 255, 255, 0.6);
+  background: white;
   padding: 12px 15px;
-  border-radius: 15px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid var(--gray-border);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -398,7 +417,6 @@ body {
   font-weight: 400;
   height: 100%;
   transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
 }
 
 .select-selected .payment-info {
@@ -426,16 +444,15 @@ body {
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--gray-border);
   z-index: 99;
   margin-top: 5px;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
 }
 
 .select-items.open {
@@ -444,7 +461,7 @@ body {
 }
 
 .exchange-box {
-  min-height: 480px; /* Фиксированная высота */
+  min-height: 480px;
 }
 
 .select-items div {
@@ -619,8 +636,8 @@ body {
 }
 
 .review-card:hover {
-  transform: translateY(-3px); /* Меньше поднимается */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Меньше тень */
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .review-date {
@@ -719,7 +736,7 @@ body {
 }
 
 .feature-card {
-  background: #f7f9fb; /* Светло-серый фон карточек */
+  background: #f7f9fb;
   border-radius: 12px;
   padding: 25px;
   text-align: center;
@@ -799,7 +816,7 @@ body {
   overflow: hidden;
 }
 
-  /* Адаптация для средних экранов */
+/* Адаптация для средних экранов */
 @media (max-width: 1024px) {
   .diamond-animation {
     width: 180px;
@@ -819,7 +836,8 @@ body {
     padding: 20px;
   }
 }
-/* Вернул все как было в оригинале */
+
+/* Мобильная версия */
 @media (max-width: 900px) {
   .exchange-section {
     flex-direction: column;
@@ -872,31 +890,29 @@ body {
     display: none;
     position: fixed;
     top: 70px;
-    left: 0;
-    right: 0;
-    width: calc(100% - 10px);
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 16px;
-    border-radius: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
     background: white;
+    padding: 20px;
+    border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     z-index: 100;
-    opacity: 0;
-    transform: translateY(-30px);
-    transition: 
-      opacity 0.4s ease-out,
-      transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-    pointer-events: none;
+    flex-direction: column;
+    gap: 15px;
   }
   
   .nav-menu.active {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  }
+  .nav-link {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-link::after {
+    bottom: 5px;
   }
   
   .mobile-menu-btn {
@@ -966,79 +982,6 @@ body {
   .reviews-swiper {
     width: calc(100% - 4px);
     padding: 0 2px;
-  }
-  
-  .input-wrapper {
-    padding: 10px;
-  }
-  
-  .blob-btn {
-    padding: 12px 20px;
-    font-size: 14px;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .review-slide .review-card {
-    padding: 15px;
-    margin-bottom: 25px;
-  }
-  
-  .mobile-menu-btn {
-    margin-left: 10px;
-  }
-  
-  .footer-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .info-tooltip {
-    width: 240px;
-    left: 0;
-    transform: none;
-  }
-}
-
-/* Мобильные экраны (≤480px) */
-@media (max-width: 480px) {
-  .exchange-section {
-    padding: 0 3px; /* 3px отступ */
-  }
-  
-  /* Виджеты (кроме шапки) */
-  .exchange-box,
-  .reviews-widget,
-  .features-widget {
-    width: calc(100% - 6px); /* 3px с каждой стороны */
-    padding: 12px 10px; /* Уже внутри */
-    margin-bottom: 8px;
-  }
-  
-  /* Шапку не трогаем! */
-  .header {
-    width: calc(100% - 40px); /* Оригинальные отступы */
-    padding: 10px 25px;
-  }
-  
-  .nav-menu {
-    top: 60px;
-    left: 3px; /* 3px отступ */
-    right: 3px; /* 3px отступ */
-    width: calc(100% - 6px);
-    padding: 14px;
-    transform: translateX(-50%) translateY(-15px);
-  }
-  
-  .nav-menu.active {
-    transform: translateX(-50%) translateY(0);
-  }
-  
-  .reviews-swiper {
-    width: calc(100% - 6px); /* 3px с каждой стороны */
-    padding: 0;
   }
   
   .input-wrapper {
