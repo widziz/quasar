@@ -29,7 +29,7 @@
     <div style="display: flex; align-items: center; gap: 15px;">
       <a href="#" class="contact-link">
         <i class="fab fa-telegram-plane"></i>
-        <span>@premium</span>
+        <span>@cuassr</span>
       </a>
       <button class="mobile-menu-btn">
         <span></span>
@@ -56,64 +56,63 @@
         <div class="diamond-animation" id="diamond-animation"></div>
       </div>
       
-<!-- Виджет обмена -->
-<div class="exchange-box">
-  <h2 class="exchange-title">Обменять валюту</h2>
-  
-  <div class="input-group">
-    <span class="input-label">Вы отправляете</span>
-    <div class="input-wrapper">
-      <input type="number" id="rub-input" placeholder="0" min="0" class="input-field">
-      <div class="currency-container">
-        <img src="rub.png" alt="RUB" class="currency-icon">
-        <span>RUB</span>
-      </div>
-    </div>
-  </div>
-  
-  <div class="input-group">
-    <span class="input-label">Вы получаете
-      <span class="rate-info">≈ ₽282.72 (-0.79%)</span>
-      <div class="info-icon">
-        ⓘ
-        <div class="info-tooltip">
-          <div class="info-tooltip-title">Как рассчитывается курс?</div>
-          <div class="info-tooltip-text">
-            TON = 325 RUB<br>
-            После комиссий: 350 RUB<br><br>
-            <strong>Самая низкая комиссия на рынке!</strong>
-          </div>
-          <div class="fee-breakdown">
-            <div class="fee-part fee-part-1"></div>
-            <div class="fee-part fee-part-2"></div>
-            <div class="fee-part fee-part-3"></div>
-          </div>
-          <div class="fee-labels">
-            <span>Вы получаете (87%)</span>
-            <span>Сервис (8%)</span>
-            <span>Сеть (5%)</span>
-          </div>
-          <div class="info-tooltip-text" style="margin-top: 10px; font-size: 12px;">
-            Комиссия сервиса идет на его развитие и поддержку
-          </div>
-        </div>
-      </div>
-    </span>
-    <div class="input-wrapper">
-      <input type="number" id="ton-input" placeholder="0" min="0" class="input-field">
-      <div class="currency-container">
-        <img src="ton.png" alt="TON" class="currency-icon">
-        <span>TON</span>
-      </div>
-    </div>
-  </div>
+      <!-- Виджет обмена -->
+      <div class="exchange-box">
+        <h2 class="exchange-title">Обменять валюту</h2>
         
+        <div class="input-group">
+          <span class="input-label">Вы отправляете</span>
+          <div class="input-wrapper">
+            <input type="number" id="rub-input" placeholder="0" min="0" class="input-field">
+            <div class="currency-container">
+              <img src="icons/rub.png" alt="RUB" class="currency-icon">
+              <span>RUB</span>
+            </div>
+          </div>
+          <div class="input-hint">Min: 30₽ | Max: 100000₽</div>
+        </div>
+        
+        <div class="input-group">
+          <span class="input-label">Вы получаете
+            <div class="info-icon">
+              ⓘ
+              <div class="info-tooltip">
+                <div class="info-tooltip-title">Как рассчитывается курс?</div>
+                <div class="info-tooltip-text" id="rate-calculation">
+                  Загрузка курса...
+                </div>
+                <div class="fee-breakdown">
+                  <div class="fee-part fee-part-1"></div>
+                  <div class="fee-part fee-part-2"></div>
+                  <div class="fee-part fee-part-3"></div>
+                </div>
+                <div class="fee-labels">
+                  <span>Вы получаете (87%)</span>
+                  <span>Сервис (8%)</span>
+                  <span>Сеть (5%)</span>
+                </div>
+                <div class="info-tooltip-text" style="margin-top: 10px; font-size: 12px;">
+                  Комиссия сервиса идет на его развитие и поддержку
+                </div>
+              </div>
+            </div>
+          </span>
+          <div class="input-wrapper">
+            <input type="number" id="ton-input" placeholder="0" min="0" class="input-field">
+            <div class="currency-container">
+              <img src="icons/ton.png" alt="TON" class="currency-icon">
+              <span>TON</span>
+            </div>
+          </div>
+          <div class="input-hint" id="rate-info">Загрузка курса...</div>
+        </div>
+              
         <div class="payment-methods">
           <span class="input-label">Способ оплаты</span>
           <div class="custom-select">
             <div class="select-selected">
               <div class="payment-info">
-                <img src="card.png" class="payment-icon" alt="Карта">
+                <img src="icons/card.png" class="payment-icon" alt="Карта">
                 <span>Оплата картой</span>
                 <span class="payment-percent">1%</span>
               </div>
@@ -121,14 +120,14 @@
             <div class="select-items">
               <div>
                 <div class="payment-option">
-                  <img src="card.png" class="payment-icon" alt="Карта">
+                  <img src="icons/card.png" class="payment-icon" alt="Карта">
                   <span>Оплата картой</span>
                 </div>
                 <span class="payment-percent">1%</span>
               </div>
               <div>
                 <div class="payment-option">
-                  <img src="sbp.png" class="payment-icon" alt="СБП">
+                  <img src="icons/sbp.png" class="payment-icon" alt="СБП">
                   <span>СБП</span>
                 </div>
                 <span class="payment-percent">2%</span>
@@ -136,7 +135,7 @@
             </div>
           </div>
         </div>
-        
+              
         <button class="blob-btn">
           Обменять
           <span class="blob-btn__inner">
@@ -330,6 +329,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="exchange-rates.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
