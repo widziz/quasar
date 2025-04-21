@@ -4,7 +4,7 @@
   --primary-glow: rgba(77, 107, 254, 0.3);
   --gray-border: #e2e8f0;
   --gray-text: #64748b;
-  --mobile-padding: 10px;
+  --base-mobile-padding: 12px; /* Единая переменная для отступов */
 }
 
 body {
@@ -841,15 +841,23 @@ body {
 /* Мобильная версия */
 @media (max-width: 900px) {
   :root {
-    --mobile-padding: 10px; /* Основной отступ от краев экрана */
-    --widget-gap: 15px; /* Расстояние между виджетами */
+    /* Базовые переменные отступов (можно менять только эти значения) */
+    --base-padding: 12px;        /* Основной отступ от краев */
+    --base-gap: 16px;            /* Базовое расстояние между блоками */
+    --base-section-pad: 18px;     /* Внутренние отступы секций */
+    
+    /* Производные переменные (рассчитываются автоматически) */
+    --mobile-padding: var(--base-padding);
+    --widget-gap: var(--base-gap);
+    --section-padding: var(--base-section-pad);
     --mobile-radius: 12px;
-    --section-padding: 20px;
+    --nav-menu-pad: calc(var(--base-padding) * 1.5);
   }
 
   /* Основная структура */
   .main-container {
     padding: 0 var(--mobile-padding);
+    box-sizing: border-box;
   }
 
   .exchange-section {
@@ -858,6 +866,7 @@ body {
     margin: var(--widget-gap) auto;
     padding: 0;
     gap: var(--widget-gap);
+    width: 100%;
   }
 
   .slogan-block {
@@ -870,9 +879,10 @@ body {
     padding: var(--section-padding);
     margin: 0 auto;
     border-radius: var(--mobile-radius);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     background: white;
     border: 1px solid rgba(77, 107, 254, 0.1);
+    box-sizing: border-box;
   }
 
   /* Виджеты */
@@ -882,6 +892,7 @@ body {
     padding: var(--section-padding);
     margin: var(--widget-gap) auto 0;
     border-radius: var(--mobile-radius);
+    box-sizing: border-box;
   }
 
   .reviews-grid {
@@ -905,15 +916,16 @@ body {
     max-width: 400px;
     margin: 0 auto;
     background: white;
-    padding: 20px;
+    padding: var(--nav-menu-pad);
     border-radius: var(--mobile-radius);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     z-index: 100;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     transition: all 0.3s ease;
+    box-sizing: border-box;
   }
 
   .nav-menu.active {
@@ -943,7 +955,7 @@ body {
     gap: 5px;
     width: 24px;
     height: 24px;
-    margin-left: 15px;
+    margin-left: 12px;
     cursor: pointer;
   }
 
@@ -956,7 +968,7 @@ body {
   }
 
   .mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(4.5px, 4.5px);
   }
 
   .mobile-menu-btn.active span:nth-child(2) {
@@ -965,7 +977,7 @@ body {
   }
 
   .mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(4.5px, -4.5px);
   }
 
   .contact-link {
@@ -981,9 +993,10 @@ body {
 /* Версия для очень маленьких экранов */
 @media (max-width: 480px) {
   :root {
-    --mobile-padding: 8px;
-    --widget-gap: 12px;
-    --section-padding: 16px;
+    /* Уменьшенные отступы для маленьких экранов */
+    --base-padding: 14px;
+    --base-gap: 18px;
+    --base-section-pad: 20px;
   }
 
   .header {
@@ -1023,22 +1036,23 @@ body {
   }
 
   .feature-card {
-    padding: 18px;
+    padding: 16px;
   }
 
   .review-slide .review-card {
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 14px;
+    margin-bottom: 14px;
   }
 
   .nav-menu {
     top: 60px;
-    padding: 15px;
+    padding: var(--nav-menu-pad);
   }
 
   .mobile-menu-btn {
     width: 22px;
     height: 22px;
+    margin-left: 10px;
   }
 
   .mobile-menu-btn span {
@@ -1048,7 +1062,7 @@ body {
   .footer-links {
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 15px;
+    margin-bottom: var(--widget-gap);
   }
 
   .info-tooltip {
