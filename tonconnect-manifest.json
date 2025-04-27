@@ -1,0 +1,9 @@
+{
+  "manifest_version": "2",
+  "name": "Crulf Exchange",
+  "description": "Быстрая покупка и продажа TON на Crulf",
+  "url": "https://crulf.online",
+  "iconUrl": "https://crulf.online/logo.png",
+  "termsOfUseUrl": "https://crulf.online/terms.html",
+  "privacyPolicyUrl": "https://crulf.online/privacy.html"
+}
